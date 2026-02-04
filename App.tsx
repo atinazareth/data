@@ -129,6 +129,7 @@ const App: React.FC = () => {
              <img src="https://static.wixstatic.com/media/cbd749_798495ca43ab48a9b3d10c10241e154a~mv2.jpg/v1/fill/w_420,h_420,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG-20250908-WA0006.jpg" alt="ATI Logo" className="w-full h-full object-contain" />
           </div>
           
+          
           <h2 className="text-3xl font-black text-slate-800 mb-2">تسجيل الدخول للنظام</h2>
           <p className="text-slate-400 font-bold mb-10 text-sm">يرجى إدخال كلمة المرور للوصول إلى البيانات</p>
           
