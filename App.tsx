@@ -232,6 +232,7 @@ const App: React.FC = () => {
             >
               🔄
             </button>
+            
             <button 
               onClick={handleLogout} 
               className="p-3 bg-white hover:bg-red-50 text-red-500 rounded-2xl border border-slate-100 shadow-sm transition-all"
