@@ -126,7 +126,7 @@ const App: React.FC = () => {
       <div className="fixed inset-0 bg-[#f3f7ff] flex flex-col items-center justify-center p-6 text-right" dir="rtl">
         <div className="bg-white p-12 rounded-[2.5rem] shadow-2xl w-full max-w-md border border-slate-100 text-center animate-in fade-in zoom-in duration-300">
           <div className="w-40 h-40 mx-auto mb-8 bg-blue-50 rounded-3xl p-5 shadow-inner border border-blue-100 flex items-center justify-center overflow-hidden">
-             <img src="logo_png.png" alt="ATI Logo" className="w-full h-full object-contain" />
+             <img src="./logo_png.png" alt="ATI Logo" className="w-full h-full object-contain" />
           </div>
           
           <h2 className="text-3xl font-black text-slate-800 mb-2">تسجيل الدخول للنظام</h2>
@@ -208,7 +208,7 @@ const App: React.FC = () => {
         <div className="max-w-[1700px] mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-4 cursor-pointer" onClick={() => setView('dashboard')}>
             <div className="w-20 h-20 bg-white rounded-2xl p-2 shadow-lg border border-slate-50 flex items-center justify-center">
-               <img src="logo_png.png" alt="Logo" className="w-full h-full object-contain" />
+               <img src="./logo_png.png" alt="Logo" className="w-full h-full object-contain" />
             </div>
           </div>
 
