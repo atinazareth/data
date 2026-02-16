@@ -1,5 +1,5 @@
 
-export type View = 'dashboard' | 'profile' | 'attendance' | 'payments' | 'teachers' | 'charts';
+export type View = 'dashboard' | 'profile' | 'attendance' | 'payments' | 'tasks' | 'charts';
 
 export interface Student {
   id: string;
@@ -59,4 +59,13 @@ export interface Teacher {
   name: string;
   subject: string;
   phone: string;
+}
+
+export interface Task {
+  id: string;
+  title: string;
+  status: 'pending' | 'completed';
+  comment: string;
+  createdAt?: string;
+  updatedAt?: string;
 }

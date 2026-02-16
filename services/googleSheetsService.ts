@@ -1,5 +1,5 @@
 
-import { Student, PaymentRecord, AttendanceRecord, Teacher, AttendanceDay } from '../types';
+import { Student, PaymentRecord, AttendanceRecord, Teacher, AttendanceDay, Task } from '../types';
 
 const GOOGLE_SHEETS_API_URL = (typeof import.meta !== 'undefined' && (import.meta as any).env?.VITE_GOOGLE_SHEETS_API_URL) || 'https://script.google.com/macros/s/AKfycbym6-IMkCea57D5SoFbJ83De9yztv8vTCkxdbh6Mq-OJcFgMzj2i4LN9xYEZeGHe4xcww/exec'
 let cachedData: any = null;
@@ -191,4 +191,19 @@ export const fetchStudentAttendance = async (studentName: string): Promise<Atten
     percentage: 0,
     semesters
   };
+};
+
+export const fetchTasks = async (): Promise<Task[]> => {
+  const data = await fetchData();
+  if (!data || !data.tasks) return [];
+  return (data.tasks || []).map((t: any, idx: number) => ({
+    id: String(idx.toString()),
+    title: String(getVal(t, 'task_desc') || ''),
+    status: String(getVal(t, 'status') || 'pending').toLowerCase() === 'completed' ? 'completed' : 'pending',
+    comment: String(getVal(t, 'comment') || '')
+  }));
+};
+
+export const updateTaskStatus = async (taskTitle: string, status: 'pending' | 'completed', comment: string) => {
+  return await postToSheet({ action: 'updateTask', taskTitle, status, comment });
 };

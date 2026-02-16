@@ -8,7 +8,7 @@ import StudentForm from './features/student-directory/components/StudentForm';
 import BirthdayCard from './features/student-directory/components/BirthdayCard';
 import AttendanceView from './features/attendance/AttendanceView';
 import PaymentsView from './features/payments/PaymentsView';
-import TeachersView from './features/teachers/TeachersView';
+import TasksView from './features/tasks/TasksView';
 import ChartsView from './features/charts/ChartsView';
 import { fetchStudents, clearCache } from './services/googleSheetsService';
 import { FilterState, View, Student } from './types';
@@ -207,7 +207,7 @@ const App: React.FC = () => {
       {/* Top Header */}
       <header className="bg-white/70 backdrop-blur-lg border-b border-slate-100 sticky top-0 z-30 px-4 md:px-12 py-5 no-print">
         <div className="max-w-[1700px] mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-4 cursor-pointer" onClick={() => setView('dashboard')}>
+          <div className="flex items-center gap-4 cursor-pointer" onClick={() => { setView('dashboard'); setSelectedStudentId(null); }}>
             <div className="w-20 h-20 bg-white rounded-2xl p-2 shadow-lg border border-slate-50 flex items-center justify-center">
                <img src="https://static.wixstatic.com/media/cbd749_798495ca43ab48a9b3d10c10241e154a~mv2.jpg/v1/fill/w_420,h_420,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG-20250908-WA0006.jpg" alt="Logo" className="w-full h-full object-contain" />
             </div>
@@ -268,13 +268,13 @@ const App: React.FC = () => {
              </button>
              <PaymentsView onBack={handleBack} />
           </div>
-        ) : view === 'teachers' ? (
+        ) : view === 'tasks' ? (
           <div className="space-y-4">
              <button onClick={handleBack} className="text-blue-600 font-black text-sm flex items-center gap-2 hover:underline">
                <span>رجوع</span>
                <span>←</span>
              </button>
-             <TeachersView onBack={handleBack} />
+             <TasksView onBack={handleBack} />
           </div>
         ) : view === 'charts' ? (
           <div className="space-y-4">
@@ -306,7 +306,7 @@ const App: React.FC = () => {
             <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
               <DashboardCard label="الحضور" icon="📝" color="emerald" onClick={() => setView('attendance')} />
               <DashboardCard label="المالية" icon="💳" color="amber" onClick={() => setView('payments')} />
-              <DashboardCard label="المعلمين" icon="👨‍🏫" color="indigo" onClick={() => setView('teachers')} />
+              <DashboardCard label="المهام" icon="✓" color="indigo" onClick={() => setView('tasks')} />
               <DashboardCard label="الإحصائيات" icon="📈" color="slate" onClick={() => setView('charts')} />
               <DashboardCard label="إضافة طالب" icon="👤➕" color="blue" onClick={() => setView('add-student')} />
             </div>
